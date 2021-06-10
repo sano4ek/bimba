@@ -8,4 +8,25 @@ steps:
   commands:
   - sudo apt-get install gcc
   - echo installed
+
+- name: Building
+  image: pwntools/pwntools:latest
+  commands:
+  - sudo gcc -no-pie -fno-stack-protector -o a.out target.c
+  - echo success compile!!!
+  
+  
+- name: Reading
+  image: pwntools/pwntools:latest
+  commands:
+  - readelf -h a.out
+  - echo success reading
+  
+
+- name: Running
+  image: pwntools/pwntools:latest
+  commands:
+  - python3 ./_pwn.py
+  - echo Programm is running
+  
   
