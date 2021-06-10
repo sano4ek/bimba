@@ -3,8 +3,9 @@ type: docker
 name: default
 
 steps:
-- name: greeting
-  image: alpine
+- name: Loading
+  image: pwntools/pwntools:latest
   commands:
-  - ls -l
-  - echo complete
+  - sudo apt-get install gcc
+  - echo installed
+  
